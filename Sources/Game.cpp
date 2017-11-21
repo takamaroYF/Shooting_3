@@ -43,7 +43,7 @@ void Update()
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
         if (targetRect.Overlaps(bulletRect)) {
-            score += 1;         // スコアの加算
+            score += 100;         // スコアの加算  +100ポイントに変更（HW16A114 田中陽大）
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
@@ -71,6 +71,6 @@ void Update()
     SetFont("nicoca_v1.ttf", 20.0f);
     DrawText(FormatString("%05d", score), Vector2(-319, 199), Color::black);
     DrawText(FormatString("%05d", score), Vector2(-320, 200), Color::white);
-    //スコアを5桁表示に変更 (HW16A114 田中陽大)    
+    //スコアを5桁表示に変更 (HW16A114 田中陽大)
 }
 

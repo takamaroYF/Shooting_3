@@ -21,6 +21,7 @@ int     score;          //!< スコア
 // ゲーム開始時に呼ばれる関数です。
 void Start()
 {
+    PlayBGM("bgm_maoudamashii_8bit07.mp3"); //BGMの追加（HW16A114 田中陽大）
     cloudPos = Vector2(-320, 100);
     cannonPos = Vector2(-80, -150);
     targetRect = Rect(80, -140, 40, 40);
@@ -31,6 +32,7 @@ void Start()
 // 1/60秒ごとに呼ばれる関数です。モデルの更新と画面の描画を行います。
 void Update()
 {
+    
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);

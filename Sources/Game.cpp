@@ -22,8 +22,8 @@ int     score;          //!< スコア
 void Start()
 {
     cloudPos = Vector2(-320, 100);
-    cannonPos = Vector2(-80, -150);
-    targetRect = Rect(80, -140, 40, 40);
+    cannonPos = Vector2(-80, -150);     // 砲台の位置を画面左に変更(HW16A115 田中雄登)
+    targetRect = Rect(80, -140, 40, 40);// ターゲットの位置を画面右に変更(HW16A115 田中雄登)
     bulletPos.x = -999;
     score = 0;
 }
@@ -33,7 +33,7 @@ void Update()
 {
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
-        bulletPos = cannonPos + Vector2(50, 10);
+        bulletPos = cannonPos + Vector2(50, 10);        // 弾の速度を変更し再度発射可能に変更(HW16A115 田中雄登)
     }
 
     // 弾の移動
@@ -53,7 +53,7 @@ void Update()
     FillRect(Rect(-320, -240, 640, 100), Color::green);
 
     // 雲の描画
-    DrawImage("cloud1.png", cloudPos);
+    DrawImage("cloud1.png", cloudPos);          // 雲の移動を導入し、ループするように変更(HW16A115 田中雄登)
 
     // 弾の描画
     if (bulletPos.x > -999) {
@@ -61,7 +61,7 @@ void Update()
     }
 
     // 砲台の描画
-    FillRect(Rect(cannonPos.x-10, -140, 20, 100), Color::blue);
+    FillRect(Rect(cannonPos.x-10, -140, 20, 100), Color::blue);// 砲台が壁に沿って移動するように変更(HW16A115 田中雄登)
     DrawImage("cannon.png", cannonPos);
 
     // ターゲットの描画
